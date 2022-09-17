@@ -1,11 +1,10 @@
-import React from 'react';
+import { FC } from 'react';
+import Rooms from '../components/Rooms/Rooms';
 
-const MeetingRooms = () => {
-    return (
-        <div>
-            Hello Meeting
-        </div>
-    );
-};
+const MeetingRooms: FC = () => (
+        <>
+            <Rooms />
+        </>
+);
 
 export default MeetingRooms;
