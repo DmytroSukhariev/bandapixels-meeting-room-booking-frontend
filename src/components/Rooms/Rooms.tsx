@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import ItemRoom from '../ItemRoom/ItemRoom';
+import { OfficeBuilding } from '../../types/room';
 import styles from './Rooms.module.scss';
-import {OfficeBuilding} from '../../types/room';
 
 const meetingRooms = [
     {

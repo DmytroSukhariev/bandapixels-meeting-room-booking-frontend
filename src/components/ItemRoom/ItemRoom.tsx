@@ -1,4 +1,4 @@
-import {FC, useState} from 'react';
+import { FC, useState } from 'react';
 import { MeetingRoom } from '../../types/room';
 import people from '../../assets/icon/people.svg';
 import styles from './ItemRoom.module.scss';
@@ -9,10 +9,10 @@ const ItemRoom: FC<MeetingRoom> = ({
     noOfMeetingRoom,
     peopleCapacity,
     }) => {
-    const [isActive, setActive] = useState(false);
+    const [isActive, setIsActive] = useState(false);
 
     return (
-        <li className={`${styles.container} ${isActive ? styles.active : ''}`} onClick={() => setActive(!isActive)}>
+        <li className={`${styles.container} ${isActive ? styles.active : ''}`} onClick={() => setIsActive(!isActive)}>
             <h2 className={styles.title}>{`Meeting room ${noOfMeetingRoom}`}</h2>
             <p className={styles.building}>{`${building}st building`}</p>
             <div className={styles.wrapperCapacity}>
