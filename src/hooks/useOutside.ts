@@ -20,7 +20,6 @@ export const useOutsideClick = (
         if (!handler || !refs || !refsArray?.length) {
             return;
         }
-        console.log('qwe');
 
         const listener = (ev: Event): void => {
             for (const ref of refsArray) {
