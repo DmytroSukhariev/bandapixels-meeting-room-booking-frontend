@@ -1,15 +1,19 @@
-import React from 'react';
 import './App.css';
-import './components/styles/_header.scss';
-import './components/styles/cards-list.scss';
-import { Header } from './components/Header';
-import { CardsList } from './components/CardList';
+import './index.css';
+import { MainPage } from './pages/MainPage';
 
 function App() {
     return (
         <>
-            <Header />
-            <CardsList />
+            <style>
+                <link rel='preconnect' href='https://fonts.googleapis.com' />
+                <link rel='preconnect' href='https://fonts.gstatic.com' />
+                <link
+                    href='https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap'
+                    rel='stylesheet'
+                />
+            </style>
+            <MainPage />
         </>
     );
 }

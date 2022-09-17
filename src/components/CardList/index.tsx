@@ -1,3 +1,5 @@
+import '../../styles/cards-list.scss';
+
 export const CardsList = () => {
     return (
         <div className='section list-section'>

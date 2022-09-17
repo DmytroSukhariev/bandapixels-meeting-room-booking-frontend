@@ -1,0 +1,64 @@
+.button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 54px;
+
+    background-color: black;
+    border-radius: 8px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+
+    &:hover,
+    &:focus {
+        background-color: #efe314;
+        border: none;
+    }
+
+    &__text {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 21px;
+
+        color: white;
+
+        .button:hover &,
+        .button:focus & {
+            color: black;
+        }
+    }
+
+    &__image {
+        position: absolute;
+        top: 14px;
+        right: 15px;
+        width: 24px;
+        height: 24px;
+        fill: white;
+
+        .button:hover &,
+        .button:focus & {
+            fill: black;
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .button {
+        position: fixed;
+        bottom: 45px;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 327px;
+        width: 100%;
+    }
+}
+@media screen and (min-width: 768px) {
+    .button {
+        width: 100%;
+        max-width: 200px;
+        margin-top: 32px;
+    }
+}
