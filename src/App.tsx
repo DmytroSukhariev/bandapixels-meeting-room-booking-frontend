@@ -1,7 +1,6 @@
 import './App.css';
 import './index.css';
 import { MainPage } from './pages/MainPage';
-import MeetingRooms from './pages/MeetingRooms';
 
 function App() {
     return (
@@ -15,7 +14,6 @@ function App() {
                 />
             </style>
             <MainPage />
-            <MeetingRooms />
         </>
     );
 }
