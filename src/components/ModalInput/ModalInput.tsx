@@ -1,7 +1,9 @@
 import React, { ChangeEvent, FC, useState } from 'react';
 import { IInput } from '../../types/IInput';
+import { InputVariant } from '../../types/InputVariant';
 import { InputTypes } from '../../utils/constants/InputTypes';
 import { LabelTypes } from '../../utils/constants/LabelTypes';
+import { validateNumberInput } from '../../utils/helpers/validateNumberInput';
 import './modal-input.scss';
 
 interface Props extends IInput {
@@ -15,8 +17,19 @@ export const ModalInput: FC<Props> = ({
 }) => {
   const [inputVal, setInputVal] = useState('');
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    variant: InputVariant,
+    e: ChangeEvent<HTMLInputElement>
+  ) => {
+    if (
+      e.target.value.length > 0 &&
+      variant === 'NUMBER_OF_PEOPLE' &&
+      !validateNumberInput(e.target.value)
+    ) {
+      return;
+    }
     setInputVal(e.target.value);
+
     if (!disabled && handleInputChange) {
       handleInputChange();
     }
@@ -29,7 +42,7 @@ export const ModalInput: FC<Props> = ({
         className={`modal-input input-${variant
           .toLowerCase()
           .replaceAll('_', '-')}`}
-        onChange={handleChange}
+        onChange={(e) => handleChange(variant, e)}
         value={inputVal}
         name={variant.toLowerCase()}
       />

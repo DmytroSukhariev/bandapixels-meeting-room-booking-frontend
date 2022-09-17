@@ -13,12 +13,11 @@ export const ModalList: FC<Props> = ({ inputs, handleInputChange }) => {
     <ul className='modal-list'>
       {inputs.map((item, index) => {
         return (
-          <li className='modal-list__item'>
+          <li className='modal-list__item' key={index}>
             <ModalInput
               disabled={item.disabled}
               handleInputChange={handleInputChange}
               variant={item.variant}
-              key={index}
             />
           </li>
         );
