@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Modal } from './components/Modal/Modal';
 import { BookingModal } from './components/BookingModal/BookingModal';
@@ -18,7 +17,6 @@ function App() {
         title='Open Modal'
         handleClick={() => setIsOpen(true)}
       ></ModalButton>
-      ;
       <Modal isOpen={isOpen}>
         <BookingModal toggleModal={toggleModal} />
       </Modal>

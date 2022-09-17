@@ -45,15 +45,11 @@ export const BookingModal: FC<Props> = ({
   };
   return (
     <div className='booking-modal'>
-      <div className='booking-modal-overlay'>
-        <div className='booking-modal__wrapper'>
-          <ModalTitle title={title} />
-          <ModalList handleInputChange={handleInputChange} inputs={inputs} />
-          <div className='booking-modal__buttons'>
-            <ModalButton handleClick={handleOk} title='Ok' />
-            <ModalButton handleClick={handleCancel} title='Cancel' />
-          </div>
-        </div>
+      <ModalTitle title={title} />
+      <ModalList handleInputChange={handleInputChange} inputs={inputs} />
+      <div className='booking-modal__buttons'>
+        <ModalButton handleClick={handleOk} title='Ok' />
+        <ModalButton handleClick={handleCancel} title='Cancel' />
       </div>
     </div>
   );
