@@ -1,64 +1,73 @@
 .container {
-  width: 343px;
-  padding: 24px 20px 20px 20px;
-  border: 1px solid #C0C0C0;
-  border-radius: 8px;
-  font-family: 'Roboto', sans-serif;
-  position: relative;
-  list-style-type: none;
-  margin-bottom: 24px;
-  background: transparent;
+    position: relative;
+    max-width: 343px;
 
-  @media only screen and (max-width: 1024px) {
-    width: 100%;
-  }
+    padding-top: 24px;
+    padding-left: 20px;
+    padding-bottom: 16px;
+
+    background: transparent;
+    border: 1px solid #c0c0c0;
+    border-radius: 8px;
+
+    @media screen and (max-width: 420px) {
+        &:not(:last-child) {
+            margin-bottom: 16px;
+        }
+    }
+    @media screen and (min-width: 420px) {
+        width: 100%;
+
+        flex-basis: calc(100% / 3 - 30px);
+        margin-left: 30px;
+        margin-top: 30px;
+    }
 }
 
 .title {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 23px;
-  color: #171718;
-  margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    color: #171718;
+    margin-bottom: 8px;
 }
 
 .floor,
 .building {
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
-  color: #5E5E5E;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #5e5e5e;
 }
 
 .floor {
-  margin: 4px 0 15px 0;
+    margin: 4px 0 15px 0;
 }
 
 .wrapperCapacity {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
 }
 
 .peopleCapacity {
-  margin-left: 8px;
+    margin-left: 8px;
 }
 
 .active {
-  border: 1px solid #171718;
-  border-radius: 8px;
-  background: #FFFFFF;
+    border: 1px solid #171718;
+    border-radius: 8px;
+    background: #ffffff;
 
-  &:after {
-    content: '';
-    width: 24px;
-    height: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
-    background: #EFE314;
-    border-radius: 0 7px 7px 0;
-  }
+    &:after {
+        content: '';
+        width: 24px;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: #efe314;
+        border-radius: 0 7px 7px 0;
+    }
 }

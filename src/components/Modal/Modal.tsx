@@ -1,9 +1,9 @@
 import React, { FC, PropsWithChildren } from 'react';
 
 interface Props {
-  isOpen: boolean;
+    isOpen: boolean;
 }
 
 export const Modal: FC<PropsWithChildren<Props>> = ({ children, isOpen }) => {
-  return <>{isOpen && <div className='modal'>{children}</div>}</>;
+    return <>{isOpen && <div className='modal'>{children}</div>}</>;
 };

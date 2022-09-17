@@ -1,16 +1,8 @@
-import React, { useState } from 'react';
 import './App.css';
 import './index.css';
-import { MainPage } from './pages/MainPage';import { Modal } from './components/Modal/Modal';
-import { BookingModal } from './components/BookingModal/BookingModal';
-import { ModalButton } from './components/ModalButton/ModalButton';
-
+import { MainPage } from './pages/MainPage';
 
 function App() {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleModal = (open: boolean) => {
-    setIsOpen(open);
-  };
     return (
         <>
             <style>
@@ -21,14 +13,7 @@ function App() {
                     rel='stylesheet'
                 />
             </style>
-            <MainPage /> <ModalButton
-        title='Open Modal'
-        handleClick={() => setIsOpen(true)}
-     />
-     
-      <Modal isOpen={isOpen}>
-        <BookingModal toggleModal={toggleModal} />
-      </Modal>
+            <MainPage />
         </>
     );
 }

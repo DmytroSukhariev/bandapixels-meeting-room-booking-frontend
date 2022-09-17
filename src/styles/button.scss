@@ -46,7 +46,7 @@
 @media screen and (max-width: 768px) {
     .button {
         position: fixed;
-        bottom: 45px;
+        bottom: 10px;
         left: 0;
         right: 0;
         margin-left: auto;
@@ -59,6 +59,6 @@
     .button {
         width: 100%;
         max-width: 200px;
-        margin-top: 32px;
+        margin-left: auto;
     }
 }

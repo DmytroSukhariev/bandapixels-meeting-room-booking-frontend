@@ -1,60 +1,49 @@
 import React, { FC } from 'react';
 import { IInput } from '../../types/IInput';
 import { ModalButton } from '../ModalButton/ModalButton';
-import './booking-modal.scss';
 import { ModalList } from '../ModalList/ModalList';
 import { ModalTitle } from '../ModalTitle/ModalTitle';
+import { useOutsideClick } from '../../hooks/useOutside';
+import { modalInputs } from '../../utils/arrays/input-list';
+import './booking-modal.scss';
 
-interface Props {
-  inputs?: IInput[];
-  handleInputChange?: () => void;
-  toggleModal: (open: boolean) => void;
-  title?: string;
+export interface Props {
+    inputs?: IInput[];
+    handleInputChange?: () => void;
+    toggleModal: (open: boolean) => void;
+    title?: string;
 }
 
-const modalInputs: IInput[] = [
-  {
-    disabled: false,
-    variant: 'NAME',
-  },
-  {
-    disabled: false,
-    variant: 'SURNAME',
-  },
-  {
-    disabled: false,
-    variant: 'NUMBER_OF_PEOPLE',
-  },
-  {
-    disabled: false,
-    variant: 'DESC',
-  },
-];
-
 export const BookingModal: FC<Props> = ({
-  inputs = modalInputs,
-  title = 'Booking details:',
-  handleInputChange,
-  toggleModal,
+    inputs = modalInputs,
+    title = 'Booking details:',
+    handleInputChange,
+    toggleModal,
 }) => {
-  const handleOk = () => {
-    toggleModal(false);
-  };
-  const handleCancel = () => {
-    toggleModal(false);
-  };
-  return (
-    <div className='booking-modal'>
-      <div className='booking-modal-overlay'>
-        <div className='booking-modal__wrapper'>
-          <ModalTitle title={title} />
-          <ModalList handleInputChange={handleInputChange} inputs={inputs} />
-          <div className='booking-modal__buttons'>
-            <ModalButton handleClick={handleOk} title='Ok' />
-            <ModalButton handleClick={handleCancel} title='Cancel' />
-          </div>
+    const ref = React.useRef<HTMLDivElement | null>(null);
+    useOutsideClick(() => toggleModal(false), ref);
+
+    return (
+        <div className='booking-modal'>
+            <div className='booking-modal-overlay'>
+                <div className='booking-modal__wrapper' ref={ref}>
+                    <ModalTitle title={title} />
+                    <ModalList
+                        handleInputChange={handleInputChange}
+                        inputs={inputs}
+                    />
+                    <div className='booking-modal__buttons'>
+                        <ModalButton
+                            handleClick={() => toggleModal(false)}
+                            title='Ok'
+                        />
+                        <ModalButton
+                            handleClick={() => toggleModal(false)}
+                            title='Cancel'
+                        />
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
