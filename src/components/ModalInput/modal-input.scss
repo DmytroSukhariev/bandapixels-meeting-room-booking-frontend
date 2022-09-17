@@ -1,0 +1,20 @@
+.modal-input {
+  padding: 1em;
+  border: 1px solid #171718;
+  border-radius: 8px;
+  &:focus {
+    outline: 1px solid #171718;
+  }
+  &-label {
+    border-radius: 12px;
+    flex-direction: column;
+    row-gap: 0.5em;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    text-align: start;
+  }
+}
