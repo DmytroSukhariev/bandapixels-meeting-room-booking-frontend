@@ -4,11 +4,25 @@
 //.rbc-timeslot-group:nth-child(1), .rbc-timeslot-group:nth-child(2), .rbc-timeslot-group:nth-child(3), .rbc-timeslot-group:nth-child(23), .rbc-timeslot-group:nth-child(24)
 //{ background-color: lightpink; }
 
-
 .rbc-calendar{
   color: #171718;
   font-size: 18px;
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 500;
+  max-width: 1555px;
+  margin: 0 auto;
+  padding-top: 50px;
+  height: 600px;
+
+  @media screen and (max-width: 1590px) {
+    max-width: 1157px;
+    width: 90%;
+    padding-top: 30px;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding-top: 0;
+    margin-bottom: 30px;
+  }
 }

@@ -9,6 +9,11 @@
   line-height: 23px;
   color: #171718;
 
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    gap: 8px;
+  }
+
   .rbc-toolbar-label {
     flex-grow: 1;
     padding: 0 10px;
@@ -24,8 +29,8 @@
     padding: .375rem 1rem;
     white-space: nowrap;
 
-    background: #EFE314;
-    border-radius: 12px;
+    background: #FFFFFF;
+    border-radius: 8px;
 
     font-weight: 600;
     font-size: 14px;
@@ -60,11 +65,11 @@
     &:hover {
       //color: $btn-color;
       background-color: #EFE314;
-      opacity: 0.7;
       //border-color: $active-border;
     }
   }
 }
+
 
 .rbc-btn-group {
   display: inline-block;
@@ -108,5 +113,103 @@
   & + &,
   & + button {
     margin-left: 10px;
+  }
+}
+
+.rbc-allday-cell {
+  display: none;
+}
+
+.rbc-header {
+  padding: 10px;
+}
+
+.rbc-time-content {
+  border-top: 2px solid black;
+}
+
+.rbc-today {
+  .rbc-events-container {
+    width: 100%;
+
+    .rbc-event {
+      border-radius: 0;
+      justify-content: center;
+      min-height: 30px;
+      padding: 5px;
+
+      .rbc-event-label {
+        color: #FFFFFF;
+      }
+
+      .rbc-event-content {
+        color: #FFFFFF;
+        min-height: 20px;
+        padding: 0;
+      }
+
+      .rbc-selected {
+        background-color: #EFE314;
+      }
+    }
+  }
+}
+
+.rbc-agenda-time-cell {
+  border-left: 1px solid #ddd;
+}
+
+.rbc-row-segment {
+  .rbc-event {
+    border-radius: 0;
+
+    .rbc-event-content {
+      color: #FFFFFF;
+    }
+  }
+}
+
+.rbc-current-time-indicator {
+  display: none;
+}
+
+.rbc-month-view,
+.rbc-time-view {
+  border-radius: 8px;
+}
+
+.rbc-time-view {
+  .rbc-time-content {
+    @media screen and (max-width: 768px) {
+      border-radius: 8px;
+    }
+  }
+}
+
+.rbc-timeslot-group {
+  min-height: 60px;
+}
+
+.rbc-time-header {
+  &.rbc-overflowing {
+    border-right: none;
+  }
+}
+
+.rbc-time-content {
+  .rbc-events-container {
+    margin-right: 0;
+
+    .rbc-event {
+      border-radius: 0;
+
+      .rbc-event-label {
+        color: #FFFFFF;
+      }
+
+      .rbc-event-content {
+        color: #FFFFFF;
+      }
+    }
   }
 }
