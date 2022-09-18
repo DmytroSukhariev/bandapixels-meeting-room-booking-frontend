@@ -32,12 +32,12 @@ const ItemRoom: FC<MeetingRoom> = ({
         </div>
       </li>
 
-      {/* <Modal isOpen={isOpen}>
+      <Modal isOpen={isOpen} toggleModal={toggleModal}>
         <BookingModal toggleModal={toggleModal} />
-      </Modal> */}
-      <Modal isOpen={isOpen}>
-        <InfoModal toggleModal={toggleModal} infoList={['one', 'two']} />
       </Modal>
+      {/* <Modal isOpen={isOpen} toggleModal={toggleModal}>
+        <InfoModal toggleModal={toggleModal} infoList={['one', 'two']} />
+      </Modal> */}
     </>
   );
 };
