@@ -1,5 +1,5 @@
-import React, {FC} from 'react';
-import {IInput} from '../../types/IInput';
+import React, { FC } from 'react';
+import { IInput } from '../../types/IInput';
 import { InputTypes } from '../../utils/constants/InputTypes';
 import { LabelTypes } from '../../utils/constants/LabelTypes';
 import './modal-input.scss';
@@ -10,18 +10,19 @@ interface Props extends IInput {
 }
 
 export const ModalInput: FC<Props> = ({
-    handleInputChange,
-    variant,
-    value
-  }) => {
-
+  disabled,
+  handleInputChange,
+  variant,
+  value,
+}) => {
   return (
     <label htmlFor={variant.toLowerCase()} className='modal-input-label'>
       {LabelTypes[variant]}
       {variant !== 'DESC' ? (
         <input
           type={InputTypes[variant]}
-          className={`modal-input input-${variant.toLowerCase()
+          className={`modal-input input-${variant
+            .toLowerCase()
             .replaceAll('_', '-')}`}
           onChange={(e) => handleInputChange(e.target.value)}
           value={value}
