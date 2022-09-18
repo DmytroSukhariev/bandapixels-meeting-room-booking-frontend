@@ -1,9 +1,10 @@
 import { FC, useEffect, useState } from 'react';
 import { fetchRoomByID, RoomInfoProps } from '../../api/get-room-by-id';
-import '../../styles/header.scss';
 import { BookingModal } from '../BookingModal/BookingModal';
 import { Modal } from '../Modal/Modal';
 import './styles/room-info.scss';
+import '../../styles/header.scss';
+import { RoomInfo } from './room-info';
 
 type RoomProps = {
     id: string | undefined;
@@ -11,12 +12,12 @@ type RoomProps = {
 
 const initailState: RoomInfoProps = {
     id: 0,
-    peopleCapacity: 0,
-    building: '',
+    peopleCapacity: 2,
+    building: '2',
     noOfMeetingRoom: 0,
 };
 
-export const RoomInfo: FC<RoomProps> = ({ id }) => {
+export const Room: FC<RoomProps> = ({ id }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [roomInfo, stRoomInfo] = useState<RoomInfoProps>(initailState);
 
@@ -34,8 +35,9 @@ export const RoomInfo: FC<RoomProps> = ({ id }) => {
             console.log(error);
         }
     };
-
-    // id && getRoomById(id);
+    // useEffect(() => {
+    //     id && getRoomById(id);
+    // }, [id]);
 
     return (
         <div className='section'>
@@ -43,7 +45,12 @@ export const RoomInfo: FC<RoomProps> = ({ id }) => {
                 <h1 className='room__title' onClick={() => setIsOpen(true)}>
                     Room {id}
                 </h1>
-                <Modal isOpen={isOpen}>
+                <RoomInfo
+                    peopleCapacity={roomInfo.peopleCapacity}
+                    building={roomInfo.peopleCapacity}
+                />
+
+                <Modal isOpen={isOpen} toggleModal={toggleModal}>
                     <BookingModal toggleModal={toggleModal} />
                 </Modal>
             </div>

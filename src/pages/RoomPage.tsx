@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { FC } from 'react';
 import { Header } from '../components/Header';
-import { RoomInfo } from '../components/Room';
+import { Room } from '../components/Room';
 
 export const RoomPage: FC = () => {
     let params = useParams();
@@ -10,7 +10,7 @@ export const RoomPage: FC = () => {
         <>
             <Header />
 
-            <RoomInfo id={params.roomId} />
+            <Room id={params.roomId} />
         </>
     );
 };
