@@ -4,4 +4,5 @@ export enum InfoTypes {
   DATE = 'Date: ',
   TIME = 'Time: ',
   TEAM = 'Paticipants: ',
+  DESC = 'Description: ',
 }

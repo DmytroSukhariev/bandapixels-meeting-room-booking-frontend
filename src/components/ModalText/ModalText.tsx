@@ -1,14 +1,9 @@
 import React, { FC } from 'react';
-import { InfoVariant } from '../../types/InfoVariant';
+import { IBookedInfo } from '../../types/IBookedInfo';
 import { InfoTypes } from '../../utils/constants/InfoTypes';
 import './modal-text.scss';
 
-interface Props {
-  text: string;
-  variant: InfoVariant;
-}
-
-export const ModalText: FC<Props> = ({ text, variant }) => {
+export const ModalText: FC<IBookedInfo> = ({ text, variant }) => {
   return (
     <div className='modal-text'>
       <p className='modal-text__label'>

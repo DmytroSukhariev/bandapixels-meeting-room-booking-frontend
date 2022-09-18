@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { IInput } from '../../types/IInput';
 import { ModalButton } from '../ModalButton/ModalButton';
 import { ModalList } from '../ModalList/ModalList';
@@ -19,6 +19,12 @@ export const BookingModal: FC<Props> = ({
   handleInputChange,
   toggleModal,
 }) => {
+  // useEffect(() => {
+  //   const data = fetch('https://a66d-77-120-226-129.eu.ngrok.io/meeting-room', {
+  //     method: 'GET',
+  //   });
+  //   console.log(data);
+  // }, []);
   return (
     <div className='booking-modal'>
       <ModalTitle title={title} />

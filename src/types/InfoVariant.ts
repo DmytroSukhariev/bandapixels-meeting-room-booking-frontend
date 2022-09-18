@@ -1,1 +1,7 @@
-export type InfoVariant = 'NAME' | 'SURNAME' | 'DATE' | 'TIME' | 'TEAM';
+export type InfoVariant =
+  | 'NAME'
+  | 'SURNAME'
+  | 'DESC'
+  | 'DATE'
+  | 'TIME'
+  | 'TEAM';
