@@ -32,9 +32,9 @@ const ItemRoom: FC<MeetingRoom> = ({
         </div>
       </li>
 
-      <Modal isOpen={isOpen} toggleModal={toggleModal}>
-        <BookingModal toggleModal={toggleModal} />
-      </Modal>
+      {/*<Modal isOpen={isOpen} toggleModal={toggleModal}>*/}
+      {/*  <BookingModal toggleModal={toggleModal} />*/}
+      {/*</Modal>*/}
       {/* <Modal isOpen={isOpen} toggleModal={toggleModal}>
         <InfoModal
           toggleModal={toggleModal}
@@ -46,6 +46,7 @@ const ItemRoom: FC<MeetingRoom> = ({
       </Modal> */}
     </>
   );
+
 };
 
 export default ItemRoom;

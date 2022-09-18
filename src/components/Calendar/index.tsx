@@ -11,6 +11,8 @@ import {
 import moment from 'moment'
 // import "react-big-calendar/lib/css/react-big-calendar.css";
 import './styles/styles.scss'
+import {useGetContext} from "../../layouts/DataContextLayout/useGetContext";
+import {DataContextType} from "../../layouts/DataContextLayout/useData";
 
 const localizer = momentLocalizer(moment)
 
@@ -22,6 +24,7 @@ let formats = {
 }
 
 export const MyCalendar = () => {
+    const {state, setBookingModal, setAboutBookedModal, setCurrentBackendEvent} = useGetContext();
     const [myEventsList, setMyEvents] = useState([{
         title: "Ivan Kozan",
         start: new Date(),
@@ -33,18 +36,24 @@ export const MyCalendar = () => {
 
     const handleSelectEvent = (i: { start: Date, end: Date }) => {
         console.log("handle", i)
+        setAboutBookedModal(true);
     }
 
     const handleSelectSlot = useCallback(
         ({start, end}: { start: Date, end: Date }) => {
             if (viewMode.current !== "month") {
                 if (!errorEvent.current) {
-                    console.log("fff", errorEvent.current)
-                    const title = window.prompt('New Event name')
+                    // console.log("fff", errorEvent.current)
+                    // const title = window.prompt('New Event name')
+                    //
+                    // if (title) {
+                    //     setMyEvents((prev) => [...prev, {start, end, title,}])
+                    // }
+                    setBookingModal(true);
+                    setCurrentBackendEvent({
+                        ...state.currentEvent, start, end
+                    })
 
-                    if (title) {
-                        setMyEvents((prev) => [...prev, {start, end, title,}])
-                    }
                 }
 
                 if (errorEvent.current) {
