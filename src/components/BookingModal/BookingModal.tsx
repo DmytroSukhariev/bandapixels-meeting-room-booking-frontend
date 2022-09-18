@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { IInput } from '../../types/IInput';
 import { ModalButton } from '../ModalButton/ModalButton';
 import { ModalTitle } from '../ModalTitle/ModalTitle';

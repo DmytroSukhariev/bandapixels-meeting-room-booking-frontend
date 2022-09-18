@@ -17,27 +17,6 @@ export const ModalInput: FC<Props> = ({
   variant,
   value,
 }) => {
-  // const [inputVal, setInputVal] = useState('');
-
-  // const handleChange = (
-  //   variant: InputVariant,
-  //   e: ChangeEvent<HTMLInputElement>
-  // ) => {
-  //   if (
-  //     e.target.value.length > 0 &&
-  //     variant === 'NUMBER_OF_PEOPLE' &&
-  //     !validateNumberInput(e.target.value)
-  //   ) {
-  //     return;
-  //   }
-  //   // setInputVal(e.target.value);
-  //   handleInputChange(e.target.value)
-  //
-  //   if (!disabled && handleInputChange) {
-  //     handleInputChange();
-  //   }
-  // };
-
   return (
     <label htmlFor={variant.toLowerCase()} className='modal-input-label'>
       {LabelTypes[variant]}
