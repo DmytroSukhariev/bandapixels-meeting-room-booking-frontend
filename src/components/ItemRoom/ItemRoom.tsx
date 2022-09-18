@@ -36,7 +36,13 @@ const ItemRoom: FC<MeetingRoom> = ({
         <BookingModal toggleModal={toggleModal} />
       </Modal>
       {/* <Modal isOpen={isOpen} toggleModal={toggleModal}>
-        <InfoModal toggleModal={toggleModal} infoList={['one', 'two']} />
+        <InfoModal
+          toggleModal={toggleModal}
+          infoList={[
+            { text: 'one', variant: 'NAME' },
+            { text: 'two', variant: 'SURNAME' },
+          ]}
+        />
       </Modal> */}
     </>
   );

@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
+import { IBookedInfo } from '../../types/IBookedInfo';
 import { ModalText } from '../ModalText/ModalText';
 import './modal-info-list.scss';
 
 interface Props {
-  info: string[];
+  info: IBookedInfo[];
 }
 
 export const ModalInfoList: FC<Props> = ({ info }) => {
@@ -12,7 +13,7 @@ export const ModalInfoList: FC<Props> = ({ info }) => {
       {info.map((item, index) => {
         return (
           <li className='modal-list__item' key={index}>
-            <ModalText text={item} />
+            <ModalText text={item.text} variant={item.variant} />
           </li>
         );
       })}

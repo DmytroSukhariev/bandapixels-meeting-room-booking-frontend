@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { IBookedInfo } from '../../types/IBookedInfo';
 import { ModalButton } from '../ModalButton/ModalButton';
 import { ModalInfoList } from '../ModalInfoList/ModalInfoList';
 import { ModalTitle } from '../ModalTitle/ModalTitle';
@@ -7,11 +8,11 @@ import './info-modal.scss';
 interface Props {
   title?: string;
   toggleModal: (open: boolean) => void;
-  infoList: string[];
+  infoList: IBookedInfo[];
 }
 
 export const InfoModal: FC<Props> = ({
-  title = 'Booking details',
+  title = 'Room is booked. Details:',
   toggleModal,
   infoList,
 }) => {
