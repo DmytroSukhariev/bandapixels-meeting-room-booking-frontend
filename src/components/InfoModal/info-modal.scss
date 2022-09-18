@@ -1,0 +1,8 @@
+.info-modal {
+  &__buttons {
+    display: flex;
+    justify-content: space-around;
+    column-gap: 1em;
+    margin-top: 2em;
+  }
+}
