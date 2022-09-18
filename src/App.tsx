@@ -9,7 +9,7 @@ import { useGetContext } from './layouts/DataContextLayout/useGetContext';
 import { InfoModal } from './components/InfoModal/InfoModal';
 
 function App() {
-  const { state, setBookingModal } = useGetContext();
+  const { state, setBookingModal, setAboutBookedModal} = useGetContext();
   console.log({ state });
   return (
     <div className='App'>
@@ -24,20 +24,22 @@ function App() {
       <MainPage />
       <MyCalendar />
       <Modal isOpen={state.bookingModal} toggleModal={setBookingModal}>
-        {/* <InfoModal
-          toggleModal={setBookingModal}
-          bookedRoomInfo={{
-            issuerFirstName: 'Me',
-            issuerLastName: 'MeMe',
-            meetingRoomId: 2,
-            description: 'gdgdfhdfh',
-            numberOfPeople: 2,
-            start: new Date('11.02.13'),
-            end: new Date('11.02.13'),
-          }}
-        /> */}
         <BookingModal toggleModal={setBookingModal} />
       </Modal>
+        {/*<Modal isOpen={state.aboutBookedModal} toggleModal={setAboutBookedModal}>*/}
+        {/*    <InfoModal*/}
+        {/*        toggleModal={setAboutBookedModal}*/}
+        {/*        bookedRoomInfo={{*/}
+        {/*            issuerFirstName: 'Me',*/}
+        {/*            issuerLastName: 'MeMe',*/}
+        {/*            meetingRoomId: 2,*/}
+        {/*            description: 'gdgdfhdfh',*/}
+        {/*            numberOfPeople: 2,*/}
+        {/*            start: new Date('11.02.13'),*/}
+        {/*            end: new Date('11.02.13'),*/}
+        {/*        }}*/}
+        {/*    />*/}
+        {/*</Modal>*/}
     </div>
   );
 }
