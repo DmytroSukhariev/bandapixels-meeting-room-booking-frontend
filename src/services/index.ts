@@ -1,4 +1,5 @@
-import {BackEndEvent} from "../types/events";
+import { BackEndEvent } from '../types/events';
+import { OfficeBuilding } from '../types/room';
 import { Get, Post } from './api-client';
 
 type Entity = { id: number; createdAt: string; updatedAt: string };
@@ -24,10 +25,15 @@ export const MeetingRooms = async () => Get<MeetingRoom[]>('/meeting-room');
 
 export const MeetingRoom = async () => Get<MeetingRoom>('');
 
-export const AvailableRooms = async (from: Date, to: Date, numberOfPeople?: number) => Get<MeetingRoom[]>('/available-rooms', { from, to, numberOfPeople });
+export const AvailableRooms = async (
+    from: Date,
+    to: Date,
+    numberOfPeople?: number
+) => Get<MeetingRoom[]>('/available-rooms', { from, to, numberOfPeople });
 
 export const PostBackendEvent = async (data: BackEndEvent) => {
-    return Post<any>('/booking', data)
-}
+    return Post<any>('/booking', data);
+};
 
-export const BookingsForRoom = async (roomId: number, from: Date, to: Date) => Get(`for-room/:${roomId}`, { from, to });
+export const BookingsForRoom = async (roomId: number, from: Date, to: Date) =>
+    Get(`for-room/:${roomId}`, { from, to });
