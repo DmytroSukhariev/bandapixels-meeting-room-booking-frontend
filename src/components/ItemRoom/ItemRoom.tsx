@@ -23,10 +23,7 @@ const ItemRoom: FC<MeetingRoom> = ({
                 className={`${styles.container} ${
                     isActive ? styles.active : ''
                 }`}
-                onClick={() => {
-                    setIsOpen(true);
-                    setIsActive(!isActive);
-                }}
+                onClick={() => setIsOpen(true)}
             >
                 <h2
                     className={styles.title}
