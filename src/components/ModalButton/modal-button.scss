@@ -1,0 +1,18 @@
+.modal-button {
+  color: white;
+  background-color: #171718;
+  padding: 16px;
+  width: 35%;
+  border-radius: 12px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  border: none;
+  &:hover,
+  &:active {
+    background-color: #efe314;
+    color: #171718;
+    outline: none;
+  }
+}
