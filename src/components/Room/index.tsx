@@ -47,7 +47,7 @@ export const Room: FC<RoomProps> = ({ id }) => {
                 </h1>
                 <RoomInfo
                     peopleCapacity={roomInfo.peopleCapacity}
-                    building={roomInfo.peopleCapacity}
+                    building={roomInfo.building}
                 />
 
                 <Modal isOpen={isOpen} toggleModal={toggleModal}>
