@@ -6,3 +6,24 @@
     margin-top: 2em;
   }
 }
+.modal-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  row-gap: 1em;
+  margin-top: 3em;
+
+  &__item {
+    display: flex;
+    column-gap: 1em;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    span {
+      text-align: left;
+      flex: 0 1 40%;
+    }
+  }
+}

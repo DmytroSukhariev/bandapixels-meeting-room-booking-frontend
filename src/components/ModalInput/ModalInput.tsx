@@ -3,7 +3,7 @@ import { IInput } from '../../types/IInput';
 import { InputVariant } from '../../types/InputVariant';
 import { InputTypes } from '../../utils/constants/InputTypes';
 import { LabelTypes } from '../../utils/constants/LabelTypes';
-import { validateNumberInput } from '../../utils/helpers/validateNumberInput';
+import { validateInput } from '../../utils/helpers/validateInput';
 import './modal-input.scss';
 
 interface Props extends IInput {
@@ -12,11 +12,11 @@ interface Props extends IInput {
 }
 
 export const ModalInput: FC<Props> = ({
-    disabled,
-    handleInputChange,
-    variant,
-    value
-  }) => {
+  disabled,
+  handleInputChange,
+  variant,
+  value,
+}) => {
   // const [inputVal, setInputVal] = useState('');
 
   // const handleChange = (
@@ -37,6 +37,7 @@ export const ModalInput: FC<Props> = ({
   //     handleInputChange();
   //   }
   // };
+
   return (
     <label htmlFor={variant.toLowerCase()} className='modal-input-label'>
       {LabelTypes[variant]}
