@@ -1,0 +1,14 @@
+@import '../../../../node_modules/react-big-calendar/lib/sass/styles';
+@import './toolbar';
+
+//.rbc-timeslot-group:nth-child(1), .rbc-timeslot-group:nth-child(2), .rbc-timeslot-group:nth-child(3), .rbc-timeslot-group:nth-child(23), .rbc-timeslot-group:nth-child(24)
+//{ background-color: lightpink; }
+
+
+.rbc-calendar{
+  color: #171718;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+}
