@@ -1,9 +1,8 @@
 import { FC, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { MeetingRoom } from '../../types/room';
 import people from '../../assets/icon/people.svg';
 import styles from './ItemRoom.module.scss';
-import { Modal } from '../Modal/Modal';
-import { BookingModal } from '../BookingModal/BookingModal';
 
 const ItemRoom: FC<MeetingRoom> = ({
     id,
@@ -13,6 +12,8 @@ const ItemRoom: FC<MeetingRoom> = ({
 }) => {
     const [isActive, setIsActive] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+    let navigate = useNavigate();
+
     const toggleModal = (open: boolean) => {
         setIsOpen(open);
     };
@@ -23,7 +24,10 @@ const ItemRoom: FC<MeetingRoom> = ({
                 className={`${styles.container} ${
                     isActive ? styles.active : ''
                 }`}
-                onClick={() => setIsOpen(true)}
+                onClick={() => {
+                    setIsOpen(true);
+                    navigate(`/room/${id}`);
+                }}
             >
                 <h2
                     className={styles.title}
@@ -36,10 +40,6 @@ const ItemRoom: FC<MeetingRoom> = ({
                     </span>
                 </div>
             </li>
-
-            <Modal isOpen={isOpen}>
-                <BookingModal toggleModal={toggleModal} />
-            </Modal>
         </>
     );
 };
