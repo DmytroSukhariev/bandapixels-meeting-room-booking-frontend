@@ -3,6 +3,7 @@ import './App.css';
 import { Modal } from './components/Modal/Modal';
 import { BookingModal } from './components/BookingModal/BookingModal';
 import { ModalButton } from './components/ModalButton/ModalButton';
+import { InfoModal } from './components/InfoModal/InfoModal';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +19,7 @@ function App() {
         handleClick={() => setIsOpen(true)}
       ></ModalButton>
       <Modal isOpen={isOpen}>
-        <BookingModal toggleModal={toggleModal} />
+        <InfoModal toggleModal={toggleModal} infoList={[]} />
       </Modal>
     </div>
   );

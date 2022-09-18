@@ -6,15 +6,6 @@
 }
 
 .booking-modal {
-  position: relative;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  border-radius: 8px;
-  border: 1px solid #171718;
-  width: 40%;
-  row-gap: 0.5em;
   &__buttons {
     display: flex;
     justify-content: space-around;

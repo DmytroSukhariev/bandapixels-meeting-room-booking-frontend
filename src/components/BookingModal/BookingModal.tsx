@@ -44,13 +44,13 @@ export const BookingModal: FC<Props> = ({
     toggleModal(false);
   };
   return (
-    <div className='booking-modal'>
+    <>
       <ModalTitle title={title} />
       <ModalList handleInputChange={handleInputChange} inputs={inputs} />
       <div className='booking-modal__buttons'>
         <ModalButton handleClick={handleOk} title='Ok' />
         <ModalButton handleClick={handleCancel} title='Cancel' />
       </div>
-    </div>
+    </>
   );
 };

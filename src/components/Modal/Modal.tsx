@@ -10,7 +10,9 @@ export const Modal: FC<PropsWithChildren<Props>> = ({ children, isOpen }) => {
     <>
       {isOpen && (
         <div className='modal'>
-          <div className='modal-overlay'>{children}</div>
+          <div className='modal-overlay'>
+            <div className='modal__wrapper'>{children}</div>
+          </div>
         </div>
       )}
     </>

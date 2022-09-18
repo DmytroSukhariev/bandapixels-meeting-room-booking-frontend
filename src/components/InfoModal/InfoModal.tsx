@@ -4,7 +4,7 @@ import { ModalList } from '../ModalList/ModalList';
 import { ModalTitle } from '../ModalTitle/ModalTitle';
 
 interface Props {
-  title: string;
+  title?: string;
   toggleModal: (open: boolean) => void;
   infoList: string[];
 }
