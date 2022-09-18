@@ -37,15 +37,23 @@ export const ModalInput: FC<Props> = ({
   return (
     <label htmlFor={variant.toLowerCase()} className='modal-input-label'>
       {LabelTypes[variant]}
-      <input
-        type={InputTypes[variant]}
-        className={`modal-input input-${variant
-          .toLowerCase()
-          .replaceAll('_', '-')}`}
-        onChange={(e) => handleChange(variant, e)}
-        value={inputVal}
-        name={variant.toLowerCase()}
-      />
+      {variant !== 'DESC' ? (
+        <input
+          type={InputTypes[variant]}
+          className={`modal-input input-${variant
+            .toLowerCase()
+            .replaceAll('_', '-')}`}
+          onChange={(e) => handleChange(variant, e)}
+          value={inputVal}
+          name={variant.toLowerCase()}
+        />
+      ) : (
+        <textarea
+          name={variant.toLowerCase()}
+          rows={4}
+          className='modal-input'
+        ></textarea>
+      )}
     </label>
   );
 };
