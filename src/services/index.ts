@@ -2,7 +2,7 @@ import {BackEndEvent} from "../types/events";
 
 export async function PostBackendEvent(data: BackEndEvent) {
 
-    const response = await fetch("https://33bf-77-120-226-129.eu.ngrok.io/booking", {
+    const response = await fetch("http://localhost:8000/booking", {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         mode: 'no-cors', // no-cors, *cors, same-origin
         // cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
