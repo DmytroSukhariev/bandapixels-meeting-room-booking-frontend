@@ -1,21 +1,39 @@
-import {BackEndEvent} from "../types/events";
+import { BackEndEvent } from '../types/events';
+import { OfficeBuilding } from '../types/room';
+import { Get, Post } from './api-client';
 
-export async function PostBackendEvent(data: BackEndEvent) {
+type Entity = { id: number; createdAt: string; updatedAt: string };
 
-    const response = await fetch("http://localhost:8000/booking", {
-        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        mode: 'no-cors', // no-cors, *cors, same-origin
-        // cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        // credentials: 'same-origin', // include, *same-origin, omit
-        headers: {
-            'Content-Type': 'application/json'
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        // redirect: 'follow', // manual, *follow, error
-        // referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        body: JSON.stringify(data) // body data type must match "Content-Type" header
-    }).catch(console.log);
+export type MeetingRoom = {
+    id: number;
+    peopleCapacity: number;
+    building: OfficeBuilding;
+    officeMeetingRoomId: number;
+};
 
-    // console.log(response.json())
-    // return response.json(); // parses JSON response into native JavaScript objects
-}
+export type Booking = {
+    issuerFirstName: string;
+    issuerLastName: string;
+    meetingRoomId: number;
+    description: string;
+    numberOfPeople: number;
+    start: Date;
+    end: Date;
+} & Entity;
+
+export const MeetingRooms = async () => Get<MeetingRoom[]>('/meeting-room');
+
+export const MeetingRoom = async () => Get<MeetingRoom>('');
+
+export const AvailableRooms = async (
+    from: Date,
+    to: Date,
+    numberOfPeople?: number
+) => Get<MeetingRoom[]>('/available-rooms', { from, to, numberOfPeople });
+
+export const PostBackendEvent = async (data: BackEndEvent) => {
+    return Post<any>('/booking', data);
+};
+
+export const BookingsForRoom = async (roomId: number, from: Date, to: Date) =>
+    Get(`for-room/:${roomId}`, { from, to });

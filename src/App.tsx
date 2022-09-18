@@ -11,8 +11,7 @@ import { InfoModal } from './components/InfoModal/InfoModal';
 import { RoomPage } from './pages/RoomPage';
 
 function App() {
-    const { state, setBookingModal } = useGetContext();
-    console.log({ state });
+    const { state, setBookingModal, setAboutBookedModal } = useGetContext();
     return (
         <>
             <style>
@@ -23,8 +22,27 @@ function App() {
                     rel='stylesheet'
                 />
             </style>{' '}
-            <Modal isOpen={state.bookingModal} toggleModal={setBookingModal}>
-                <BookingModal toggleModal={setBookingModal} />
+            <Modal
+                isOpen={state.bookingModal || state.aboutBookedModal}
+                toggleModal={setBookingModal}
+            >
+                {state.bookingModal && (
+                    <BookingModal toggleModal={setBookingModal} />
+                )}
+                {state.aboutBookedModal && (
+                    <InfoModal
+                        toggleModal={setAboutBookedModal}
+                        bookedRoomInfo={{
+                            issuerFirstName: 'Me',
+                            issuerLastName: 'MeMe',
+                            meetingRoomId: 2,
+                            description: 'gdgdfhdfh',
+                            numberOfPeople: 2,
+                            start: new Date('11.02.13'),
+                            end: new Date('11.02.13'),
+                        }}
+                    />
+                )}
             </Modal>
             <BrowserRouter>
                 <Routes>
