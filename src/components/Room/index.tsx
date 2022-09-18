@@ -5,6 +5,8 @@ import { Modal } from '../Modal/Modal';
 import './styles/room-info.scss';
 import '../../styles/header.scss';
 import { RoomInfo } from './room-info';
+import { MyCalendar } from '../Calendar';
+import { useGetContext } from '../../layouts/DataContextLayout/useGetContext';
 
 type RoomProps = {
     id: string | undefined;
@@ -18,6 +20,7 @@ const initailState: RoomInfoProps = {
 };
 
 export const Room: FC<RoomProps> = ({ id }) => {
+    const { state, setBookingModal } = useGetContext();
     const [isOpen, setIsOpen] = useState(false);
     const [roomInfo, stRoomInfo] = useState<RoomInfoProps>(initailState);
 
@@ -49,10 +52,16 @@ export const Room: FC<RoomProps> = ({ id }) => {
                     peopleCapacity={roomInfo.peopleCapacity}
                     building={roomInfo.building}
                 />
-
-                <Modal isOpen={isOpen} toggleModal={toggleModal}>
-                    <BookingModal toggleModal={toggleModal} />
+                <MyCalendar />
+                <Modal
+                    isOpen={state.bookingModal}
+                    toggleModal={setBookingModal}
+                >
+                    <BookingModal toggleModal={setBookingModal} />
                 </Modal>
+                {/* <Modal isOpen={isOpen} toggleModal={toggleModal}>
+                    <BookingModal toggleModal={toggleModal} />
+                </Modal> */}
             </div>
         </div>
     );

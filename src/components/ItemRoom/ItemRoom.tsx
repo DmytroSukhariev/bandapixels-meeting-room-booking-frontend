@@ -11,7 +11,6 @@ const ItemRoom: FC<MeetingRoom> = ({
     peopleCapacity,
 }) => {
     const [isActive, setIsActive] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
 
     let navigate = useNavigate();
 

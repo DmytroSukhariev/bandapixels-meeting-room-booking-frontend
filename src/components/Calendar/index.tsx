@@ -8,12 +8,13 @@ import {
     DateRange,
     Culture,
 } from 'react-big-calendar';
-// import moment from 'moment';
-// import moment from 'react-moment';
+import moment from 'moment';
 // import "react-big-calendar/lib/css/react-big-calendar.css";
 import './styles/styles.scss';
+import { useGetContext } from '../../layouts/DataContextLayout/useGetContext';
+import { DataContextType } from '../../layouts/DataContextLayout/useData';
 
-// const localizer = momentLocalizer(moment);
+const localizer = momentLocalizer(moment);
 
 let formats = {
     timeGutterFormat: 'HH:mm',
@@ -28,30 +29,30 @@ let formats = {
 };
 
 export const MyCalendar = () => {
-    const [myEventsList, setMyEvents] = useState([
-        {
-            title: 'Ivan Kozan',
-            start: new Date(),
-            end: new Date(),
-        },
-    ]);
+    const {
+        state,
+        setBookingModal,
+        setAboutBookedModal,
+        setCurrentBackendEvent,
+    } = useGetContext();
     const errorEvent = useRef(false);
     const viewMode = useRef<View>('week');
 
     const handleSelectEvent = (i: { start: Date; end: Date }) => {
         console.log('handle', i);
+        setAboutBookedModal(true);
     };
 
     const handleSelectSlot = useCallback(
         ({ start, end }: { start: Date; end: Date }) => {
             if (viewMode.current !== 'month') {
                 if (!errorEvent.current) {
-                    console.log('fff', errorEvent.current);
-                    const title = window.prompt('New Event name');
-
-                    if (title) {
-                        setMyEvents((prev) => [...prev, { start, end, title }]);
-                    }
+                    setBookingModal(true);
+                    setCurrentBackendEvent({
+                        ...state.currentEvent,
+                        start,
+                        end,
+                    });
                 }
 
                 if (errorEvent.current) {
@@ -61,13 +62,13 @@ export const MyCalendar = () => {
                 //todo redirect to week
             }
         },
-        [setMyEvents]
+        [setCurrentBackendEvent]
     );
 
     const handleSelectRange = (range: { start: Date; end: Date }) => {
-        myEventsList.forEach((event) => {
+        state.events.forEach((event) => {
             if (
-                // new moment(range.end).isBetween(event.start, event.end) &&
+                moment(range.end).isBetween(event.start, event.end) &&
                 !errorEvent.current
             ) {
                 console.log('ALARMA!!!!!!!!!!!!!!!');
@@ -79,10 +80,11 @@ export const MyCalendar = () => {
 
     return (
         <div>
-            {/* <Calendar
+            <Calendar
                 defaultView={Views.WEEK}
                 localizer={localizer}
-                events={myEventsList}
+                // @ts-ignore
+                events={state.events}
                 startAccessor='start'
                 endAccessor='end'
                 style={{ height: 500 }}
@@ -94,8 +96,7 @@ export const MyCalendar = () => {
                 }}
                 onSelecting={handleSelectRange}
                 formats={formats}
-                // toolbar={false}
-            /> */}
+            />
         </div>
     );
 };
