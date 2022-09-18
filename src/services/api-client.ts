@@ -34,5 +34,5 @@ const req = async <Response>(params: {
   return fetch(url, fetchConfig).then((res) => res.json())
 }
 
-export const Get = <Response>(uri: string, queryParams: Record<string, any>): Promise<Response> => req<Response>({ uri, queryParams, method: ReqMethod.GET });
+export const Get = <Response>(uri: string, queryParams?: Record<string, any>): Promise<Response> => req<Response>({ uri, queryParams, method: ReqMethod.GET });
 export const Post = <Response>(uri: string, body: Record<string, any>,queryParams?: Record<string, any>): Promise<Response> => req<Response>({ uri, queryParams, method: ReqMethod.POST, body });
