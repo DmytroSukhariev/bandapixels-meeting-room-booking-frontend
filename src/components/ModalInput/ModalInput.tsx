@@ -1,9 +1,7 @@
-import React, { ChangeEvent, FC, useState } from 'react';
+import React, { FC } from 'react';
 import { IInput } from '../../types/IInput';
-import { InputVariant } from '../../types/InputVariant';
 import { InputTypes } from '../../utils/constants/InputTypes';
 import { LabelTypes } from '../../utils/constants/LabelTypes';
-import { validateInput } from '../../utils/helpers/validateInput';
 import './modal-input.scss';
 
 interface Props extends IInput {
