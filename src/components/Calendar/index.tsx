@@ -25,11 +25,6 @@ let formats = {
 
 export const MyCalendar = () => {
     const {state, setBookingModal, setAboutBookedModal, setCurrentBackendEvent} = useGetContext();
-    const [myEventsList, setMyEvents] = useState([{
-        title: "Ivan Kozan",
-        start: new Date(),
-        end: new Date()
-    }])
     const errorEvent = useRef(false)
     const viewMode = useRef<View>("week")
 
@@ -43,12 +38,6 @@ export const MyCalendar = () => {
         ({start, end}: { start: Date, end: Date }) => {
             if (viewMode.current !== "month") {
                 if (!errorEvent.current) {
-                    // console.log("fff", errorEvent.current)
-                    // const title = window.prompt('New Event name')
-                    //
-                    // if (title) {
-                    //     setMyEvents((prev) => [...prev, {start, end, title,}])
-                    // }
                     setBookingModal(true);
                     setCurrentBackendEvent({
                         ...state.currentEvent, start, end
@@ -65,14 +54,14 @@ export const MyCalendar = () => {
 
 
         },
-        [setMyEvents]
+        [setCurrentBackendEvent]
     )
 
     const handleSelectRange = (range: {
         start: Date,
         end: Date
     }) => {
-        myEventsList.forEach(event => {
+        state.events.forEach(event => {
             if (moment(range.end).isBetween(event.start, event.end) && !errorEvent.current) {
                 console.log("ALARMA!!!!!!!!!!!!!!!")
                 errorEvent.current = true;
@@ -81,12 +70,14 @@ export const MyCalendar = () => {
         return true
     }
 
+
     return (
         <div>
             <Calendar
                 defaultView={Views.WEEK}
                 localizer={localizer}
-                events={myEventsList}
+                // @ts-ignore
+                events={state.events}
                 startAccessor="start"
                 endAccessor="end"
                 style={{height: 500}}
@@ -98,7 +89,6 @@ export const MyCalendar = () => {
                 }}
                 onSelecting={handleSelectRange}
                 formats={formats}
-                // toolbar={false}
             />
         </div>
     );

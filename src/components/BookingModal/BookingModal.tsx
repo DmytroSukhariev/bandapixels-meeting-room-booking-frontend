@@ -1,12 +1,12 @@
 import React, {FC, useEffect} from 'react';
 import {IInput} from '../../types/IInput';
 import {ModalButton} from '../ModalButton/ModalButton';
-import {ModalList} from '../ModalList/ModalList';
 import {ModalTitle} from '../ModalTitle/ModalTitle';
 import {modalInputs} from '../../utils/arrays/input-list';
 import './booking-modal.scss';
 import {ModalInput} from "../ModalInput/ModalInput";
 import {useGetContext} from "../../layouts/DataContextLayout/useGetContext";
+import {PostBackendEvent} from "../../services";
 
 export interface Props {
     inputs?: IInput[];
@@ -21,7 +21,7 @@ export const BookingModal: FC<Props> = ({
                                             handleInputChange,
                                             toggleModal,
                                         }) => {
-    const {state, setCurrentBackendEvent} = useGetContext()
+    const {state, setCurrentBackendEvent, setCalendarEvents,} = useGetContext()
     return (
         <div className='booking-modal'>
             <ModalTitle title={title}/>
@@ -66,8 +66,31 @@ export const BookingModal: FC<Props> = ({
                 variant={'DESC'}
             />
             <div className='booking-modal__buttons'>
-                <ModalButton handleClick={() => toggleModal(false)} title='Ok'/>
-                <ModalButton handleClick={() => toggleModal(false)} title='Cancel'/>
+                <ModalButton handleClick={async () => {
+                    setCalendarEvents([
+                        ...state.events,
+                        {
+                            start: state.currentEvent.start,
+                            end: state.currentEvent.end,
+                            title: `${state.currentEvent.issuerFirstName} ${state.currentEvent.issuerFirstName}`
+                        }])
+                   const r =  await PostBackendEvent(state.currentEvent)
+                    console.log("resp!!!", r)
+                    setCurrentBackendEvent(
+                        {
+                            start: null,
+                            end: null,
+                            issuerFirstName: "",
+                            issuerLastName: "",
+                            description: "",
+                            numberOfPeople: 0,
+                            meetingRoomId: 0
+                        })
+                    toggleModal(false)
+                }} title='Ok'/>
+                <ModalButton handleClick={() => {
+                    toggleModal(false)
+                }} title='Cancel'/>
             </div>
         </div>
     );
