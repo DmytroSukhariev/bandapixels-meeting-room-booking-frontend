@@ -59,9 +59,6 @@ export const Room: FC<RoomProps> = ({ id }) => {
                 >
                     <BookingModal toggleModal={setBookingModal} />
                 </Modal>
-                {/* <Modal isOpen={isOpen} toggleModal={toggleModal}>
-                    <BookingModal toggleModal={toggleModal} />
-                </Modal> */}
             </div>
         </div>
     );

@@ -9,3 +9,15 @@
 // .room__info{
 
 // }
+.box {
+    display: flex;
+    align-items: center;
+}
+.room {
+    &__quantity {
+        margin-left: 10px;
+    }
+    &__people {
+        margin-left: 10px;
+    }
+}
